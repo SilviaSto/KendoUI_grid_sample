@@ -24,7 +24,7 @@ $(document).ready(function () {
                     }
                 }
             },
-            //batch: true,
+            batch: true,
             schema: {
                 model: {
                     id: "ProductID",
@@ -58,7 +58,7 @@ $(document).ready(function () {
         editable: "inline"
     });
 
-    var grid = $("#grid").data("kendoGrid");
+    const grid = $("#grid").data("kendoGrid");
 
         $("#addItem").on("click", function() {
             grid.addRow();
