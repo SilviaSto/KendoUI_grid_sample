@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var dataSource = new kendo.data.DataSource({
+    const dataSource = new kendo.data.DataSource({
             pageSize: 10,
             transport: {
                 read:  {
@@ -24,6 +24,7 @@ $(document).ready(function () {
                     }
                 }
             },
+            //batch: true,
             schema: {
                 model: {
                     id: "ProductID",
@@ -37,8 +38,11 @@ $(document).ready(function () {
             }
     });
 
+    const toolbar = kendo.template($("#custom-toolbar").html());
+
     $("#grid").kendoGrid({
         dataSource: dataSource,
+        toolbar: toolbar,
         pageable: {
             buttonCount: 5,
             pageSizes: [10, 25, 100]
@@ -50,6 +54,17 @@ $(document).ready(function () {
             { field:"ProductName", title: "Product Name" },
             { field: "UnitPrice", title:"Unit Price", format: "{0:c}"},
             { field: "UnitsInStock", title:"Units In Stock"},
-            ]
+        ],
+        editable: "inline"
     });
+
+    var grid = $("#grid").data("kendoGrid");
+
+        $("#addItem").on("click", function() {
+            grid.addRow();
+        });
+
+        $("#saveItem").on("click", function() {
+            grid.saveRow();
+        });
 });

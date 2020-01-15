@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Grid sample</title>
 
     <link href="https://kendo.cdn.telerik.com/2019.3.1023/styles/kendo.common.min.css" rel="stylesheet" />
@@ -12,9 +14,16 @@
 </head>
 
 <body>
-    <div id="container"> 
+    <div id="container">
         <div id="grid"></div>
     </div>
+
+    <script id="custom-toolbar" type="text/x-kendo-template">
+        <div>
+            <a class="k-button k-button-icontext" id="addItem" href="\#"><span class="k-icon k-i-plus"></span>Add New Item</a>
+            <a class="k-button k-button-icontext" id="saveItem" href="\#"><span class="k-icon k-i-save"></span>Save changes</a>
+        </div>
+    </script>
 
     <script src="src/app.js" type="text/javascript"></script>
 </body>
